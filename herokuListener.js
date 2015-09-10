@@ -18,11 +18,17 @@ util.inherits(HerokuLogsListener, require('events').EventEmitter);
 _.extend(HerokuLogsListener.prototype, {
     start: function () {
         var self = this,
-            executable = this.executable ? this.executable : 'C:\\Program Files (x86)\\Heroku\\bin\\heroku.bat',
+            executable = this.executable,
             appName = this.applicationName ? this.applicationName : '',
-            encoding = this.encoding ? this.encoding : 'utf8';
+            encoding = this.encoding ? this.encoding : 'utf8',
+            herokuCliParameters = ['logs', '--tail'];
 
-        this.tailingProcess = spawn(executable, ['logs', '--tail', '--app', appName]);
+        if (appName.length > 0) {
+            herokuCliParameters.push('--app');
+            herokuCliParameters.push(appName);
+        }
+
+        this.tailingProcess = spawn(executable, herokuCliParameters);
 
         this.tailingProcess.stdout.setEncoding(encoding);
         this.tailingProcess.stderr.setEncoding(encoding);

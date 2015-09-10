@@ -5,7 +5,7 @@ exports = module.exports = function uninstallService() {
 
 // Create a new service object
 	var svc = new Service({
-		name: 'hisesc5logger',
+		name: process.env['HEROKU_WIN_SERVICE_NAME'],
 		script: path.resolve('runLogger.js')
 	});
 

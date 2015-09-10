@@ -4,8 +4,8 @@ path = require('path');
 exports = module.exports = function installService() {
 // Create a new service object
 	var svc = new Service({
-		name: 'hisesc5logger',
-		description: 'logs events for the hisesc5',
+		name: process.env['HEROKU_WIN_SERVICE_NAME'],
+		description: 'logs events for heroku application',
 		script: path.resolve('runLogger.js')
 	});
 
