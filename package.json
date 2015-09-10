@@ -1,0 +1,23 @@
+{
+  "name": "herokuAsyncLogger",
+  "version": "0.0.0",
+  "description": "",
+  "main": "runLogger",
+  "scripts": {
+    "test": "mocha",
+    "install-service": "node service_cli.js -a install",
+    "uninstall-service": "node service_cli.js -a uninstall"
+  },
+  "author": "Vadzim Zapolski",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "winston": "^0.7.3"
+  },
+  "devDependencies": {
+    "argv": "0.0.2",
+    "node-windows": "^0.1.7",    
+    "chai": "^1.9.1",
+    "mocha": "^1.18.2"
+  }
+}
