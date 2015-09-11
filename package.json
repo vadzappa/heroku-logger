@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "runLogger",
+  "repository": "https://github.com/vadzappa/heroku-logger.git",
   "scripts": {
     "test": "mocha",
     "install-service": "node service_cli.js -a install",
